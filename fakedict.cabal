@@ -1,0 +1,69 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           fakedict
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/Innf107/fakedict#readme>
+homepage:       https://github.com/Innf107/fakedict#readme
+bug-reports:    https://github.com/Innf107/fakedict/issues
+author:         Finn Schneider
+maintainer:     finn@famschneider.info
+copyright:      2022 Finn Schneider
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/Innf107/fakedict
+
+library
+  exposed-modules:
+      Fakedict
+      Fakedict.Internal
+      Fakedict.TH
+      Fakedict.Trace
+  other-modules:
+      Paths_fakedict
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , template-haskell
+    , text
+  default-language: Haskell2010
+
+executable fakedict-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_fakedict
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , fakedict
+    , template-haskell
+    , text
+  default-language: Haskell2010
+
+test-suite fakedict-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_fakedict
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , fakedict
+    , template-haskell
+    , text
+  default-language: Haskell2010
